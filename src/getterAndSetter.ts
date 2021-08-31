@@ -25,9 +25,28 @@ class NewDepartment {
 }
 
 class ITD extends NewDepartment {
-    constructor(id:string , name : string){
+    private lastReport: string;
+    constructor(id:string , name : string ,private reports: string[] ){
         super(id , name)
+        this.lastReport = reports[0]
     }
+
+    get mostRecentReport() {
+      if (this.lastReport) {
+        return this.lastReport;
+      }
+      throw new Error('No report found.');
+    }
+    set mostRecentReport(value : string){
+        if (!value) {
+            throw new Error('Please pass in a valid value!');
+          }
+          this.addReport(value);
+    }
+    addReport(text: string) {
+        this.reports.push(text);
+        this.lastReport = text;
+      }
     printEmployeeInformation(){
         console.log("this is overwrite method from child class" , this.name)
     }
@@ -40,7 +59,8 @@ class ITD extends NewDepartment {
 }
 
 
-const sample  = new ITD("2","it") ;
+const dtl  = new ITD("2","it", ["this is last report"]) ;
 //this run method in child class that overwrite to parent class method
-sample.printEmployeeInformation();
-sample.addEmployee("kia")
+dtl.mostRecentReport = 'Year End Report';
+// dtl.addReport('Something went wrong...');
+console.log(dtl.mostRecentReport);
