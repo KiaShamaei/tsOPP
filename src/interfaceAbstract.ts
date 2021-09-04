@@ -38,6 +38,25 @@ const benz30 = new Carbenz(
 	"ali",
 	"zarei"
 );
+//extend class and readonly
+interface Named {
+	readonly name: string;
+  }
+  
+  interface Greetable extends Named {
+	greet(phrase: string): void;
+  }
+  class ClassGreetable implements Greetable {
+	  constructor(public name : string ){
+		  this.name = name ;
+	  }
+	  greet(pharse : string){
+		  console.log(this.name + "_" + pharse)
+	  }
+  }
+  const classGreetable = new ClassGreetable("kiarash") ;
+  classGreetable.greet("hello ...") 
 
 //in getter and setter we dont need to call and just by refrence is call 
-console.log(benz30.CarInfo)
+// console.log(benz30.CarInfo)
+//abstract class is context that must be implement in main class
