@@ -55,7 +55,7 @@ interface Named {
 	  }
   }
   const classGreetable = new ClassGreetable("kiarash") ;
-  classGreetable.greet("hello ...") 
+  classGreetable.greet("hello ...n") 
 
 //in getter and setter we dont need to call and just by refrence is call 
 // console.log(benz30.CarInfo)

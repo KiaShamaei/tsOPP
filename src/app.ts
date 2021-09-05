@@ -49,3 +49,9 @@ accounting.addEmployee('Manu');
 
 // accounting.describe();
 // accounting.printEmployeeInformation();
+
+
+
+//tyoe casting how to get element in ts
+const username = document.getElementById("name") ! as HTMLInputElement;
+username.value = "hi dare"
